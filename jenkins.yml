@@ -1,0 +1,13 @@
+- hosts: jenkins
+  become: true
+  remote_user: ec2-user
+
+  vars:
+    java_packages:
+      - java-1.8.0-openjdk
+    jenkins_plugins:
+      - blueocean
+
+  roles:
+    - role: ../ansible-role-java
+    - role: ../ansible-role-jenkins
